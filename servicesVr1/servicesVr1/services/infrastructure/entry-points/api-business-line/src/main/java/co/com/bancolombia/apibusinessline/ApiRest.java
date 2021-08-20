@@ -74,40 +74,40 @@ public class ApiRest {
 
     }
 
-    @PostMapping(value = "/createQ")
+    @PostMapping(value = "/createq")
     public ResponseEntity createq(PostQRequest request) {
         PostQResponse response;
         return ResponseEntity.ok(checkBusinessLineUseCase.postQResponse(request));
 
     }
 
-    @GetMapping(value = "/getQ")
+    @GetMapping(value = "/getq")
     public ResponseEntity getq(GetQByidRequest request) {
         GetQByidResponse response;
         return ResponseEntity.ok(checkBusinessLineUseCase.getQByidResponse(request));
 
     }
-    @PutMapping(value = "/updateQ")
+    @PutMapping(value = "/updateq")
     public ResponseEntity updateq(PutQByidRequest request) {
         PutQByidResponse response;
         return ResponseEntity.ok(checkBusinessLineUseCase.putQByidResponse(request));
 
     }
 
-    @DeleteMapping(value = "/deleteQ")
+    @DeleteMapping(value = "/deleteq")
     public ResponseEntity deleteq(DeleteQByidRequest request) {
         DeleteQByidResponse response;
         return ResponseEntity.ok(checkBusinessLineUseCase.deleteQByidResponse(request));
 
     }
-    @PostMapping(value = "/createSprint")
+    @PostMapping(value = "/createsprint")
     public ResponseEntity createsprint(PostSprintRequest request) {
         PostSprintResponse response;
         return ResponseEntity.ok(checkBusinessLineUseCase.postSprintResponse(request));
 
     }
-    @PutMapping(value = "/getSprint")
-    public ResponseEntity getsprint(GetSprintByidRequest request) {
+    @GetMapping(value = "/getsprint")
+    public ResponseEntity updatesprint(GetSprintByidRequest request) {
         GetSprintByidResponse response;
         return ResponseEntity.ok(checkBusinessLineUseCase.getSprintByidResponse(request));
 
