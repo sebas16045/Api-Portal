@@ -4,8 +4,9 @@ import co.com.bancolombia.model.businessline.gateways.BusinessLineRepository;
 import co.com.bancolombia.model.response.ApiResponse;
 import lombok.RequiredArgsConstructor;
 
+
 @RequiredArgsConstructor
-public class BusinesslineUseCase {
+public class  BusinesslineUseCase {
 
     private final BusinessLineRepository businessLineRepository;
 

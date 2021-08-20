@@ -2,10 +2,8 @@ package co.com.bancolombia.usecase.businessline;
 
 import co.com.bancolombia.model.request.*;
 import co.com.bancolombia.model.response.*;
-import co.com.bancolombia.model.response.Spaces;
 
 import java.io.IOException;
-import java.net.URL;
 import java.util.ArrayList;
 import java.util.UUID;
 
@@ -103,8 +101,91 @@ public class CheckBusinessLineUseCase {
 
         return deleteBussinesLineByIdResponse;
     }
+    public PostCapacityResponse postCapacityResponse(PostCapacityRequest request) {
 
+        PostCapacityResponse postCapacityResponse  = new PostCapacityResponse();
+        postCapacityResponse.setStatus("200");
 
+        return postCapacityResponse;
+    }
+    public UpdateCapacityByidResponse updateCapacityByidResponse(UpdateCapacityByidRequest request) {
 
+        UpdateCapacityByidResponse updateCapacityByidResponse  = new UpdateCapacityByidResponse();
+        updateCapacityByidResponse.setStatus("200");
+
+        return updateCapacityByidResponse;
+    }
+    public DeleteCapacityByidResponse deleteCapacityByidResponse(DeleteCapacityByidRequest request) {
+
+        DeleteCapacityByidResponse deleteCapacityByidResponse  = new DeleteCapacityByidResponse();
+        deleteCapacityByidResponse.setStatus("200");
+
+        return deleteCapacityByidResponse;
+    }
+
+    public PostCommentaryResponse postCommentaryResponse(PostCommentaryRequest request) {
+
+        PostCommentaryResponse postCommentaryResponse  = new PostCommentaryResponse();
+        postCommentaryResponse.setStatus("200");
+
+        return postCommentaryResponse;
+    }
+
+    public PostQResponse postQResponse(PostQRequest request) {
+
+        PostQResponse postQResponse  = new PostQResponse();
+        postQResponse.setStatus("200");
+
+        return postQResponse;
+    }
+    public GetQByidResponse getQByidResponse(GetQByidRequest request) {
+        GetQByidResponse getQByidResponse = new GetQByidResponse();
+        getQByidResponse.setNumber(0);
+        getQByidResponse.setYear(0);
+        return getQByidResponse;
+    }
+    public PutQByidResponse putQByidResponse(PutQByidRequest request) {
+
+        PutQByidResponse putQByidResponse  = new PutQByidResponse();
+        putQByidResponse.setStatus("200");
+
+        return putQByidResponse;
+    }
+    public DeleteQByidResponse deleteQByidResponse(DeleteQByidRequest request) {
+
+        DeleteQByidResponse deleteQByidResponse  = new DeleteQByidResponse();
+        deleteQByidResponse.setStatus("200");
+
+        return deleteQByidResponse;
+    }
+    public PostSprintResponse postSprintResponse(PostSprintRequest request) {
+
+        PostSprintResponse postSprintResponse  = new PostSprintResponse();
+        postSprintResponse.setStatus("200");
+
+        return postSprintResponse;
+    }
+
+    public GetSprintByidResponse getSprintByidResponse(GetSprintByidRequest request) {
+        GetSprintByidResponse getSprintByidResponse = new GetSprintByidResponse();
+        getSprintByidResponse.setNumber(0);
+        getSprintByidResponse.setInitialdate(0);
+        getSprintByidResponse.setFinaldate(0);
+        return getSprintByidResponse;
+    }
+    public PutSprintByidResponse putSprintByidResponse(PutSprintByidRequest request) {
+
+        PutSprintByidResponse putSprintByidResponse  = new PutSprintByidResponse();
+        putSprintByidResponse.setStatus("200");
+
+        return putSprintByidResponse;
+    }
+    public DeleteSprintByidResponse deleteSprintByidResponse(DeleteSprintByidRequest request) {
+
+        DeleteSprintByidResponse deleteSprintByidResponse  = new DeleteSprintByidResponse();
+        deleteSprintByidResponse.setStatus("200");
+
+        return deleteSprintByidResponse;
+    }
 }
 
