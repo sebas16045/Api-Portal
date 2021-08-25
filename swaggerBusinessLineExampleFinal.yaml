@@ -116,7 +116,7 @@ paths:
           description: identificación del usuario que invica  que invocará el API
           required: true
           schema:
-            "$ref": "#/definitions/UserRequest" 
+            "$ref": "#/definitions/PutBusinessLineRequest" 
       responses:
         # Response code
         '200':
@@ -278,7 +278,7 @@ paths:
         description: Created user object
         required: true
         schema:
-          "$ref": "#/definitions/Q"
+          "$ref": "#/definitions/PostQRequest"
       responses:
         # Response code
         '200':
@@ -309,7 +309,7 @@ paths:
           description: Created user object
           required: true
           schema:
-            "$ref": "#/definitions/GetQ"
+            "$ref": "#/definitions/UserRequest"
       responses:
         # Response code
         '200':
@@ -343,7 +343,7 @@ paths:
           description: Created user object
           required: true
           schema:
-            "$ref": "#/definitions/PutQ"
+            "$ref": "#/definitions/PutQRequest"
       responses:
         # Response code
         '200':
@@ -374,7 +374,7 @@ paths:
           description: Created user object
           required: true
           schema:
-            "$ref": "#/definitions/DeleteQ"
+            "$ref": "#/definitions/UserRequest"
       responses:
         # Response code
         '200':
@@ -402,7 +402,7 @@ paths:
         description: Created user object
         required: true
         schema:
-          "$ref": "#/definitions/Sprint"
+          "$ref": "#/definitions/PostSprintRequest"
       responses:
         # Response code
         '200':
@@ -433,7 +433,8 @@ paths:
           description: Created user object
           required: true
           schema:
-            "$ref": "#/definitions/GetSprint"
+            "$ref": "#/definitions/UserRequest"
+            
       responses:
         # Response code
         '200':
@@ -467,7 +468,7 @@ paths:
           description: Created user object
           required: true
           schema:
-            "$ref": "#/definitions/PutSprint"
+            "$ref": "#/definitions/PutSprintRequest"
       responses:
         # Response code
         '200':
@@ -498,7 +499,7 @@ paths:
           description: Created user object
           required: true
           schema:
-            "$ref": "#/definitions/DeleteSprint"
+            "$ref": "#/definitions/UserRequest"
       responses:
         # Response code
         '200':
@@ -518,39 +519,47 @@ definitions:
     properties:
       username:
         type: string   
+        
   Q:
     type: object
     properties:
       id:
-        type: string  
-        format: uuid
-      number:
-        type: integer 
-        format: int32
-      year:
-        type: integer 
-        format: int32
-  GetQ:
-    type: object
-    properties:
-      username:
         type: string 
-  PutQ:
-    type: object
-    properties:
-      username:
-        type: string
+        format: uuid    
       number:
         type: integer 
         format: int32
       year:
         type: integer 
         format: int32
-  DeleteQ:
+        
+  PostQRequest:
     type: object
     properties:
-      username:
-        type: string
+      number:
+        type: integer 
+        format: int32
+      year:
+        type: integer 
+        format: int32
+      user:
+        "$ref": "#/definitions/UserRequest"   
+
+  PutQRequest:
+    type: object
+    properties:
+      id:
+        type: string   
+        format: uuid     
+      number:
+        type: integer 
+        format: int32
+      year:
+        type: integer 
+        format: int32
+      user:
+        "$ref": "#/definitions/UserRequest"           
+
         
   GetQResponse:
     type: object
@@ -565,12 +574,42 @@ definitions:
         
         
       
+  PostSprintRequest:
+    type: object
+    properties:
+      number:
+        type: integer 
+        format: int32
+      initialdate:
+        type: string 
+        format: date  
+      finaldate:
+        type: string 
+        format: date
+      username:
+        type: string   
+      schema:
+        "$ref": "#/definitions/UserRequest"        
+
+  PutSprintRequest:
+    type: object
+    properties:
+      number:
+        type: integer 
+        format: int32
+      initialdate:
+        type: string 
+        format: date  
+      finaldate:
+        type: string 
+        format: date  
+
   Sprint:
     type: object
     properties:
       id:
-        type: string   
-        format: uuid
+        type: string 
+        format: uuid    
       number:
         type: integer 
         format: int32
@@ -579,33 +618,8 @@ definitions:
         format: date  
       finaldate:
         type: string 
-        format: date 
-  GetSprint:
-    type: object
-    properties:
-      id:
-        type: string   
-        format: uuid 
-  PutSprint:
-    type: object
-    properties:
-      id:
-        type: string   
-        format: uuid
-      number:
-        type: integer 
-        format: int32
-      initialdate:
-        type: string 
-        format: date  
-      finaldate:
-        type: string 
-        format: date  
-  DeleteSprint:
-    type: object
-    properties:
-      username:
-        type: string 
+        format: date   
+        
   GetSprintResponse:
     type: object
     properties:
@@ -824,9 +838,6 @@ definitions:
   PutBusinessLineRequest:
     type: object
     properties:
-      id:
-        type: string
-        format: uuid
       name:
         type: string
       description:
@@ -909,133 +920,4 @@ definitions:
         type: string
       desription:
         type: string
-        
-  ApiResponse:
-    type: object
-    properties:
-      code:
-        type: integer
-        format: int32
-      type:
-        type: string
-      message:
-        type: string
-  Category:
-    type: object
-    properties:
-      id:
-        type: integer
-        format: int64
-      name:
-        type: string
-    xml:
-      name: Category
-      
-      
-      
-  Pet:
-    type: object
-    required:
-    - name
-    - photoUrls
-    properties:
-      id:
-        type: integer
-        format: int64
-      category:
-        "$ref": "#/definitions/Category"
-      name:
-        type: string
-        example: doggie
-      photoUrls:
-        type: array
-        xml:
-          wrapped: true
-        items:
-          type: string
-          xml:
-            name: photoUrl
-      tags:
-        type: array
-        xml:
-          wrapped: true
-        items:
-          xml:
-            name: tag
-          "$ref": "#/definitions/Tag"
-      status:
-        type: string
-        description: pet status in the store
-        enum:
-        - available
-        - pending
-        - sold
-    xml:
-      name: Pet
-  Tag:
-    type: object
-    properties:
-      id:
-        type: integer
-        format: int64
-      name:
-        type: string
-    xml:
-      name: Tag
-  Order:
-    type: object
-    properties:
-      id:
-        type: integer
-        format: int64
-      petId:
-        type: integer
-        format: int64
-      quantity:
-        type: integer
-        format: int32
-      shipDate:
-        type: string
-        format: date-time
-      status:
-        type: string
-        description: Order Status
-        enum:
-        - placed
-        - approved
-        - delivered
-      complete:
-        type: boolean
-    xml:
-      name: Order
-  User:
-    type: object
-    properties:
-      id:
-        type: integer
-        format: int64
-      username:
-        type: string
-      firstName:
-        type: string
-      lastName:
-        type: string
-      email:
-        type: string
-      password:
-        type: string
-      phone:
-        type: string
-      userStatus:
-        type: integer
-        format: int32
-        description: User Status
-    xml:
-      name: User
-externalDocs:
-  description: Find out more about Swagger
-  url: http://swagger.io
-          
-    
-  
  
