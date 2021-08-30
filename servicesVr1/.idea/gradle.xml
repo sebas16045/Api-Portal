@@ -5,28 +5,28 @@
     <option name="linkedExternalProjectsSettings">
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/servicesVr1/__MACOSX/services" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/__MACOSX/services" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../../../../gradle-5.6" />
         <option name="gradleJvm" value="11" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/servicesVr1/__MACOSX/services" />
+            <option value="$PROJECT_DIR$/__MACOSX/services" />
           </set>
         </option>
       </GradleProjectSettings>
       <GradleProjectSettings>
         <option name="distributionType" value="DEFAULT_WRAPPED" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$/servicesVr1/services" />
+        <option name="externalProjectPath" value="$PROJECT_DIR$/services" />
         <option name="gradleHome" value="$PROJECT_DIR$/../../../../../../gradle-5.6" />
         <option name="gradleJvm" value="11" />
         <option name="modules">
           <set>
-            <option value="$PROJECT_DIR$/servicesVr1/services" />
-            <option value="$PROJECT_DIR$/servicesVr1/services/applications/app-service" />
-            <option value="$PROJECT_DIR$/servicesVr1/services/domain/model" />
-            <option value="$PROJECT_DIR$/servicesVr1/services/domain/usecase" />
-            <option value="$PROJECT_DIR$/servicesVr1/services/infrastructure/driven-adapters/connectbd" />
-            <option value="$PROJECT_DIR$/servicesVr1/services/infrastructure/entry-points/api-business-line" />
+            <option value="$PROJECT_DIR$/services" />
+            <option value="$PROJECT_DIR$/services/applications/app-service" />
+            <option value="$PROJECT_DIR$/services/domain/model" />
+            <option value="$PROJECT_DIR$/services/domain/usecase" />
+            <option value="$PROJECT_DIR$/services/infrastructure/driven-adapters/connectbd" />
+            <option value="$PROJECT_DIR$/services/infrastructure/entry-points/api-business-line" />
           </set>
         </option>
       </GradleProjectSettings>

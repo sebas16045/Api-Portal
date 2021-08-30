@@ -19,5 +19,17 @@
         <module name="bussinessline.connectbd.test" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bussinessline.api-business-line.main" target="1.8" />
+      <module name="bussinessline.api-business-line.test" target="1.8" />
+      <module name="bussinessline.app-service.main" target="1.8" />
+      <module name="bussinessline.app-service.test" target="1.8" />
+      <module name="bussinessline.connectbd.main" target="1.8" />
+      <module name="bussinessline.connectbd.test" target="1.8" />
+      <module name="bussinessline.model.main" target="1.8" />
+      <module name="bussinessline.model.test" target="1.8" />
+      <module name="bussinessline.usecase.main" target="1.8" />
+      <module name="bussinessline.usecase.test" target="1.8" />
+    </bytecodeTargetLevel>
   </component>
 </project>

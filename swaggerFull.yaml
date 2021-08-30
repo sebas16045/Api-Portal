@@ -1,0 +1,923 @@
+# Every Open API file needs this
+swagger: "2.0"
+
+# Document metadata
+info:
+  version: "1.0.0"
+  title: Example Photo Service
+
+# URL data
+host: api.bancolombia.com
+basePath: "/portal"
+schemes:
+- "http"
+- "https"
+
+
+# Endpoints
+paths:
+  # Business Lines
+  "/businessline":
+    get:
+      tags:
+      - Business Line
+      summary: Retorna arreglo con el listado de Business Line 
+      description: Retorna el listado de lineas de negocio registradas
+      operationId: getBusinessline
+      produces:
+      - application/json
+      parameters: 
+      - in: body
+        name: body
+        description: identificación del usuario que invocará el API
+        required: true
+        schema:
+          "$ref": "#/definitions/ApiUser"      
+      responses:
+        # Response code
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/GetBusinessLine" 
+          
+          
+        '405':
+          description: Entrada invalida             
+        '500':
+          description: Excepción no controlada 
+    post:
+      tags:
+      - Business Line
+      summary: Crea una línea de negocio
+      description: Crea una línea de negocio
+      operationId: createBusinessline
+      # Query parameters
+      parameters: 
+      - in: body
+        name: body
+        description: identificación del usuario que invocará el API
+        required: true
+        schema:
+          "$ref": "#/definitions/PostBusinessLineRequest"   
+      responses:
+        # Response code
+        '200':
+          description: successful operation
+        '405':
+          description: Entrada invalida 
+        '500':
+          description: Excepción no controlada 
+  "/businessline/{id}":
+    get:
+      tags:
+      - Business Line
+      summary: Busca una línea de negocio
+      description: Busca una línea de negocio
+      operationId: getBusinesslineById    
+      # Query parameters
+      parameters:
+        # Album id
+        - name: id
+          description: identificación del BL
+          in: path
+          required: true
+          type: integer
+        - in: body
+          name: body
+          description: identificación del usuario que invica  que invocará el API
+          required: true
+          schema:
+            "$ref": "#/definitions/UserRequest"  
+          
+      responses:
+        # Response code
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/GetBusinessLineByIdResponse" 
+        '405':
+          description: Entrada invalida             
+        '500':
+          description: Excepción no controlada  
+    put:
+      tags:
+      - Business Line
+      summary: Actualiza una línea de negocio
+      description: Actualiza una línea de negocio
+      operationId: updateBusinesslineById    
+      # Query parameters
+      parameters:
+        - name: id
+          description: identificación del BL
+          in: path
+          required: true
+          type: integer
+        - in: body
+          name: body
+          description: identificación del usuario que invica  que invocará el API
+          required: true
+          schema:
+            "$ref": "#/definitions/PutBusinessLineRequest" 
+      responses:
+        # Response code
+        '200':
+          description: successful operation
+        '405':
+          description: Entrada invalida             
+        '500':
+          description: Excepción no controlada              
+    delete:
+      tags:
+      - Business Line
+      summary: Elimina una línea de negocio
+      description: Elimina una línea de negocio
+      operationId: deleteBusinesslineById    
+      # Query parameters
+      parameters:
+        - name: id
+          description: identificación del BL
+          in: path
+          required: true
+          type: integer
+        - in: body
+          name: body
+          description: identificación del usuario que invica  que invocará el API
+          required: true
+          schema:
+            "$ref": "#/definitions/UserRequest" 
+      responses:
+        # Response code
+        '200':
+          description: successful operation
+        '405':
+          description: Entrada invalida             
+        '500':
+          description: Excepción no controlada    
+          
+  "/Capacity":
+    post:
+      tags:
+      - Capacity
+      summary: Crea una capacidad
+      description: Crea una capacidad.
+      operationId: createCapacity
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Created user object
+        required: true
+        schema:
+          "$ref": "#/definitions/PostCapacityRequest"
+      responses:
+        # Response code
+        '200':
+          description: successful operation
+        '405':
+          description: Entrada invalida             
+        '500':
+          description: Excepción no controlada
+  "/capacity/{id}":
+    put:
+      tags:
+      - Capacity
+      summary: Actualiza una capacidad dado su id
+      description: Actualiza capacidad dado su id
+      operationId: updateCapacity   
+      # Query parameters
+      parameters:
+        - name: id
+          description: identificación de la Capacidad 
+          in: path
+          required: true
+          type: integer
+        - in: body
+          name: body
+          description: identificación de la capacidad
+          required: true
+          schema:
+            "$ref": "#/definitions/PutCapacityRequest" 
+      responses:
+        # Response code
+        '200':
+          description: successful operation
+        '405':
+          description: Entrada invalida             
+        '500':
+          description: Excepción no controlada                
+    delete:
+      tags:
+      - Capacity
+      summary: Elimina una capacidad dado su id
+      description: Elimina capacidad dado su id
+      operationId: deleteCapacity   
+      # Query parameters
+      parameters:
+        - name: id
+          description: identificación de la Capacidad 
+          in: path
+          required: true
+          type: integer
+        - in: body
+          name: body
+          description: identificación de la capacidad
+          required: true
+          schema:
+            "$ref": "#/definitions/UserRequest" 
+      responses:
+        # Response code
+        '200':
+          description: successful operation
+        '405':
+          description: Entrada invalida             
+        '500':
+          description: Excepción no controlada              
+          
+  "/Commentary":
+    post:
+      tags:
+      - Commentary
+      summary: Crea un comentario
+      description: Crea un comentario
+      operationId: createCommentary
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Created user object
+        required: true
+        schema:
+          "$ref": "#/definitions/PostCommentaryRequest"
+      responses:
+        # Response code
+        '200':
+          description: successful operation
+        '405':
+          description: Entrada invalida             
+        '500':
+          description: Excepción no controlada
+  "/Q":
+    post:
+      tags:
+      - Q
+      summary: Create
+      description: Crear
+      operationId: createQ
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Created user object
+        required: true
+        schema:
+          "$ref": "#/definitions/PostQRequest"
+      responses:
+        # Response code
+        '200':
+          description: successful operation
+        '405':
+          description: Entrada invalida             
+        '500':
+          description: Excepción no controlada
+  "/Q/{id}":          
+    get:
+      tags:
+      - Q
+      summary: Consult
+      description: Consultar
+      operationId: ConsultQ
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+        - name: id
+          description: identificación del Q
+          in: path
+          required: true
+          type: integer      
+        - in: body
+          name: body
+          description: Created user object
+          required: true
+          schema:
+            "$ref": "#/definitions/UserRequest"
+      responses:
+        # Response code
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/GetQResponse" 
+          
+          
+        '405':
+          description: Entrada invalida             
+        '500':
+          description: Excepción no controlada
+    put:
+      tags:
+      - Q
+      summary: Update
+      description: Actualizar
+      operationId: UpdateQ
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+        - name: id
+          description: identificación del Q
+          in: path
+          required: true
+          type: integer      
+        - in: body
+          name: body
+          description: Created user object
+          required: true
+          schema:
+            "$ref": "#/definitions/PutQRequest"
+      responses:
+        # Response code
+        '200':
+          description: successful operation
+          
+        '405':
+          description: Entrada invalida             
+        '500':
+          description: Excepción no controlada          
+    delete:
+      tags:
+      - Q
+      summary: Delete
+      description: Eliminar
+      operationId: DeleteQ
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+        - name: id
+          description: identificación del Q
+          in: path
+          required: true
+          type: integer      
+        - in: body
+          name: body
+          description: Created user object
+          required: true
+          schema:
+            "$ref": "#/definitions/UserRequest"
+      responses:
+        # Response code
+        '200':
+          description: successful operation
+          
+        '405':
+          description: Entrada invalida             
+        '500':
+          description: Excepción no controlada            
+
+  "/Sprint":
+    post:
+      tags:
+      - Sprint
+      summary: Create
+      description: Crear
+      operationId: CreateSprint
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+      - in: body
+        name: body
+        description: Created user object
+        required: true
+        schema:
+          "$ref": "#/definitions/PostSprintRequest"
+      responses:
+        # Response code
+        '200':
+          description: successful operation
+        '405':
+          description: Entrada invalida             
+        '500':
+          description: Excepción no controlada
+  "/Sprint/{id}":          
+    get:
+      tags:
+      - Sprint
+      summary: Consult
+      description: Consultar
+      operationId: ConsultSprint
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+        - name: id
+          description: identificación del Sprint
+          in: path
+          required: true
+          type: integer      
+        - in: body
+          name: body
+          description: Created user object
+          required: true
+          schema:
+            "$ref": "#/definitions/UserRequest"
+            
+      responses:
+        # Response code
+        '200':
+          description: successful operation
+          schema:
+            "$ref": "#/definitions/GetSprintResponse" 
+                    
+          
+        '405':
+          description: Entrada invalida             
+        '500':
+          description: Excepción no controlada
+    put:
+      tags:
+      - Sprint
+      summary: Update
+      description: Actualizar
+      operationId: UpdateSprint
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+        - name: id
+          description: identificación del Sprint
+          in: path
+          required: true
+          type: integer      
+        - in: body
+          name: body
+          description: Created user object
+          required: true
+          schema:
+            "$ref": "#/definitions/PutSprintRequest"
+      responses:
+        # Response code
+        '200':
+          description: successful operation
+          
+        '405':
+          description: Entrada invalida             
+        '500':
+          description: Excepción no controlada    
+    delete:
+      tags:
+      - Sprint
+      summary: Delete
+      description: Eliminar
+      operationId: DeleteSprint
+      consumes:
+      - application/json
+      produces:
+      - application/json
+      parameters:
+        - name: id
+          description: identificación del Sprint
+          in: path
+          required: true
+          type: integer      
+        - in: body
+          name: body
+          description: Created user object
+          required: true
+          schema:
+            "$ref": "#/definitions/UserRequest"
+      responses:
+        # Response code
+        '200':
+          description: successful operation
+          
+        '405':
+          description: Entrada invalida             
+        '500':
+          description: Excepción no controlada          
+          
+
+            
+
+definitions:
+  ApiUser:
+    type: object
+    properties:
+      username:
+        type: string   
+        
+  Q:
+    type: object
+    properties:
+      id:
+        type: string 
+        format: uuid    
+      number:
+        type: integer 
+        format: int32
+      year:
+        type: integer 
+        format: int32
+        
+  PostQRequest:
+    type: object
+    properties:
+      number:
+        type: integer 
+        format: int32
+      year:
+        type: integer 
+        format: int32
+      user:
+        "$ref": "#/definitions/UserRequest"   
+
+  PutQRequest:
+    type: object
+    properties:
+      id:
+        type: string   
+        format: uuid     
+      number:
+        type: integer 
+        format: int32
+      year:
+        type: integer 
+        format: int32
+      user:
+        "$ref": "#/definitions/UserRequest"           
+
+        
+  GetQResponse:
+    type: object
+    properties:
+      number:
+        type: integer 
+        format: int32
+      year:
+        type: integer 
+        format: int32        
+  
+        
+        
+      
+  PostSprintRequest:
+    type: object
+    properties:
+      number:
+        type: integer 
+        format: int32
+      initialdate:
+        type: string 
+        format: date  
+      finaldate:
+        type: string 
+        format: date
+
+      username:
+        "$ref": "#/definitions/UserRequest"        
+
+  PutSprintRequest:
+    type: object
+    properties:
+      number:
+        type: integer 
+        format: int32
+      initialdate:
+        type: string 
+        format: date  
+      finaldate:
+        type: string 
+        format: date  
+
+  Sprint:
+    type: object
+    properties:
+      id:
+        type: string 
+        format: uuid    
+      number:
+        type: integer 
+        format: int32
+      initialdate:
+        type: string 
+        format: date  
+      finaldate:
+        type: string 
+        format: date   
+        
+  GetSprintResponse:
+    type: object
+    properties:
+      number:
+        type: integer 
+        format: int32
+      initialdate:
+        type: string 
+        format: date  
+      finaldate:
+        type: string 
+        format: date         
+  PostCommentaryRequest:
+    type: object
+    properties:
+      username:
+        type: string 
+      initiativeid:
+        type: string 
+        format: uuid
+      comment:
+        type: string  
+        
+  Commentary:
+    type: object
+    properties:
+      username:
+        type: string 
+      initiativeid:
+        type: string 
+        format: uuid
+      comment:
+        type: string          
+        
+        
+  GetBLByIdCapacity:
+    type: object
+    properties:
+      id:
+        type: string  
+        format: uuid
+      name:
+        type: string   
+      sprint:
+        "$ref": "#/definitions/Sprint" 
+      q:
+        "$ref": "#/definitions/Q" 
+      urlapi:
+        type: string
+      description:
+        type: string  
+      productorteam:
+        type: string 
+      functionalleader:
+        type: string  
+      status:
+        type: string    
+      createdby:
+        type: string   
+
+  PostCapacityRequest:
+    type: object
+    properties:
+
+      name:
+        type: string   
+      sprintid:
+        type: string  
+        format: uuid
+      qid:
+        type: string  
+        format: uuid
+      urlapi:
+        type: string
+        format: uri
+      description:
+        type: string  
+      productorteam:
+        type: string 
+      functionalleader:
+        type: string  
+      status:
+        type: string    
+      createdby:
+        type: string   
+      user:
+        "$ref": "#/definitions/UserRequest" 
+        
+  PutCapacityRequest:
+    type: object
+    properties:
+      id:
+        type: string  
+        format: uuid
+      name:
+        type: string   
+      sprintid:
+        type: string  
+        format: uuid
+      qid:
+        type: string  
+        format: uuid
+      urlapi:
+        type: string
+        format: uri
+      description:
+        type: string  
+      productorteam:
+        type: string 
+      functionalleader:
+        type: string  
+      status:
+        type: string    
+      createdby:
+        type: string   
+      user:
+        "$ref": "#/definitions/UserRequest"           
+
+            
+  Capacity:
+    type: object
+    properties:
+      id:
+        type: string  
+        format: uuid
+      name:
+        type: string   
+      sprint:
+        "$ref": "#/definitions/Sprint" 
+      q:
+        "$ref": "#/definitions/Q" 
+      urlapi:
+        type: string
+      description:
+        type: string  
+      productorteam:
+        type: string 
+      functionalleader:
+        type: string  
+      status:
+        type: string    
+      createdby:
+        type: string   
+      comments:
+        items:
+          type: array
+          items:
+            "$ref": "#/definitions/Commentary" 
+  GetBusinessLine:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      name:
+        type: string
+      description:
+        type: string        
+      image:
+        type: string
+        format: binary
+      hierarchy:
+        type: integer 
+        format: int32
+      owner:
+        type: string  
+      createby:
+        type: string 
+
+  SpaceProductKey:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      spaceid:
+        type: string
+        format: uuid        
+      productid:
+        type: string
+        format: uuid
+  UserRequest:
+    type: object
+    properties:
+      username:
+        type: string
+        
+  PostBusinessLineRequest:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      name:
+        type: string
+      description:
+        type: string        
+      image:
+        type: string
+        format: binary
+      hierarchy:
+        type: integer 
+        format: int32
+      owner:
+        type: string  
+      createby:
+        type: string 
+      SpaceProduct:
+        items:
+          type: array
+          items:
+            "$ref": "#/definitions/SpaceProductKey"  
+      user:
+        "$ref": "#/definitions/UserRequest"            
+
+  PutBusinessLineRequest:
+    type: object
+    properties:
+      name:
+        type: string
+      description:
+        type: string        
+      image:
+        type: string
+        format: binary
+      hierarchy:
+        type: integer 
+        format: int32
+      owner:
+        type: string  
+      createby:
+        type: string 
+      SpaceProduct:
+        items:
+          type: array
+          items:
+            "$ref": "#/definitions/SpaceProductKey"  
+      user:
+        "$ref": "#/definitions/UserRequest"     
+        
+
+
+           
+  GetBusinessLineByIdResponse:
+    type: object
+    properties:
+      id:
+        type: string
+        format: uuid
+      name:
+        type: string
+      description:
+        type: string        
+      image:
+        type: string
+        format: binary
+      hierarchy:
+        type: integer 
+        format: int32
+      owner:
+        type: string  
+      createby:
+        type: string  
+      capabilities:
+        type: array
+        items:
+          type: array
+          items:
+            "$ref": "#/definitions/GetBLByIdCapacity" 
+      space:
+        "$ref": "#/definitions/Space"      
+      
+  Space:
+    type: object
+    properties:
+      id:
+        type: string 
+        format: uuid
+      name:
+        type: string  
+      products:
+        type: array
+        items:
+          "$ref": "#/definitions/Product"        
+  Product:
+    type: object
+    properties:
+      id:
+        type: string 
+        format: uuid
+      name:
+        type: string 
+      producttype:
+        type: string 
+      apiversion:
+        type: string         
+      productversion:
+        type: string
+      desription:
+        type: string
+ 

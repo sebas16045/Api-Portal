@@ -2,6 +2,16 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infrastructure/entry-points/api-business-line/bussinessline.api-business-line.main.iml" filepath="$PROJECT_DIR$/.idea/modules/infrastructure/entry-points/api-business-line/bussinessline.api-business-line.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infrastructure/entry-points/api-business-line/bussinessline.api-business-line.test.iml" filepath="$PROJECT_DIR$/.idea/modules/infrastructure/entry-points/api-business-line/bussinessline.api-business-line.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/applications/app-service/bussinessline.app-service.main.iml" filepath="$PROJECT_DIR$/.idea/modules/applications/app-service/bussinessline.app-service.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/applications/app-service/bussinessline.app-service.test.iml" filepath="$PROJECT_DIR$/.idea/modules/applications/app-service/bussinessline.app-service.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infrastructure/driven-adapters/connectbd/bussinessline.connectbd.main.iml" filepath="$PROJECT_DIR$/.idea/modules/infrastructure/driven-adapters/connectbd/bussinessline.connectbd.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/infrastructure/driven-adapters/connectbd/bussinessline.connectbd.test.iml" filepath="$PROJECT_DIR$/.idea/modules/infrastructure/driven-adapters/connectbd/bussinessline.connectbd.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/model/bussinessline.model.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/model/bussinessline.model.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/model/bussinessline.model.test.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/model/bussinessline.model.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/usecase/bussinessline.usecase.main.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/usecase/bussinessline.usecase.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/domain/usecase/bussinessline.usecase.test.iml" filepath="$PROJECT_DIR$/.idea/modules/domain/usecase/bussinessline.usecase.test.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/servicesVr1.iml" filepath="$PROJECT_DIR$/.idea/servicesVr1.iml" />
     </modules>
   </component>
