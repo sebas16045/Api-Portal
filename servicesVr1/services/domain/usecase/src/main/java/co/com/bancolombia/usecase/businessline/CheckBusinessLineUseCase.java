@@ -17,6 +17,7 @@ public class CheckBusinessLineUseCase {
     //private final BusinessLineRepository businessLineRepository;
 
     public GetlistallResponse getlistallResponse(GetlistallRequest request) {
+
         GetlistallResponse getlistallResponse = new GetlistallResponse();
         getlistallResponse.setId(UUID.randomUUID());
         getlistallResponse.setName("");
@@ -27,6 +28,7 @@ public class CheckBusinessLineUseCase {
         getlistallResponse.setCreateby("");
 
         return getlistallResponse;
+
     }
      public PostcreateBussinesResponse postcreateBussinesResponse(PostcreateBussinesRequest request) {
 

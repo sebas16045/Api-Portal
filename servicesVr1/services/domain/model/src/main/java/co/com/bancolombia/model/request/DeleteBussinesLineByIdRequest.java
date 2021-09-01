@@ -17,5 +17,5 @@ import java.util.UUID;
 
 public class DeleteBussinesLineByIdRequest {
     private UUID id;
-    private List<User>userList;
+    private String username;
 }

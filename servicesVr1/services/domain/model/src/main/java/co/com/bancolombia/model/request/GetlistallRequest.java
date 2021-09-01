@@ -12,5 +12,6 @@ import lombok.NoArgsConstructor;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @Data
 public class GetlistallRequest {
+
     private String username;
 }

@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.websocket.server.PathParam;
@@ -26,51 +27,119 @@ public class ApiRest {
 
 
     @GetMapping(value = "/")
-    public ResponseEntity getlistall(@RequestBody GetlistallRequest request) {
+    public ResponseEntity getlistall(@Validated @RequestBody GetlistallRequest request) {
         GetlistallResponse response;
-        return ResponseEntity.ok(checkBusinessLineUseCase.getlistallResponse(request));
+        try {
+            GetlistallResponse getlistallResponse = new GetlistallResponse();
+            if (!(null == (request.getUsername())) && !request.getUsername().isEmpty()) {
+
+                return ResponseEntity.ok(checkBusinessLineUseCase.getlistallResponse(request));
+            } else {
+                return new ResponseEntity(HttpStatus.METHOD_NOT_ALLOWED);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
+
+
 
     @PostMapping(value = "/")
-    public ResponseEntity createBussinesline(PostcreateBussinesRequest request) {
+    public ResponseEntity createBussinesline(@RequestBody PostcreateBussinesRequest postcreateBussinesRequest ) {
         PostcreateBussinesResponse response;
+
         try {
-            if (!validateInpuntPostBusinessLine(request)) {
-                //return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Expectation Failed from Client (CODE 400)\n");
+            PostcreateBussinesResponse postcreateBussinesResponse = new PostcreateBussinesResponse();
+            if (!(null == (postcreateBussinesRequest.getName())) && !postcreateBussinesRequest.getName().isEmpty())
+                if (!(null == (postcreateBussinesRequest.getDescription())) && !postcreateBussinesRequest.getDescription().isEmpty())
+                    if (!(null == (postcreateBussinesRequest.getImage())) && !postcreateBussinesRequest.getImage().isEmpty())
+                        if (!(null == (postcreateBussinesRequest.getOwner())) && !postcreateBussinesRequest.getOwner().isEmpty())
+                            if (!(null == (postcreateBussinesRequest.getCreateby())) && !postcreateBussinesRequest.getCreateby().isEmpty())
+
+                    {
+
+                return ResponseEntity.ok(checkBusinessLineUseCase.postcreateBussinesResponse(postcreateBussinesRequest));
+            } else {
                 return new ResponseEntity(HttpStatus.METHOD_NOT_ALLOWED);
+
             }
-            return new ResponseEntity(HttpStatus.OK);
-
         } catch (Exception e) {
-
+            e.printStackTrace();
             return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
-
         }
-    }
-
-    private boolean validateInpuntPostBusinessLine(PostcreateBussinesRequest request) {
-        if (true)
-            return true;
-        else
-            return false;
 
 
+        return null;
     }
 
     @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, path = "/{id}")
     public ResponseEntity getBussinesLineById(@PathVariable("id") String id, @RequestBody GetBusinesslineByidRequest getBusinesslineByidRequest) throws IOException {
-        return ResponseEntity.ok(checkBusinessLineUseCase.selectGetBusinesslinebyId(id, getBusinesslineByidRequest));
+        try {
+            GetBusinesslineByidResponse getBusinesslineByidResponse = new GetBusinesslineByidResponse();
+            if (!(null == (getBusinesslineByidRequest.getUsername())) && !getBusinesslineByidRequest.getUsername().isEmpty()) {
+
+                return ResponseEntity.ok(checkBusinessLineUseCase.selectGetBusinesslinebyId(id, getBusinesslineByidRequest));
+            } else {
+                return new ResponseEntity(HttpStatus.METHOD_NOT_ALLOWED);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, path = "/{id}")
     public ResponseEntity putBussinesLineById(@PathVariable("id") String id, @RequestBody PostcreateBussinesRequest putUpdateBusinessLineByIdRequest) throws IOException {
-        return ResponseEntity.ok(checkBusinessLineUseCase.putUpdateBusinessLineByIdResponse(id, putUpdateBusinessLineByIdRequest));
+        try {
+            PutUpdateBusinessLineByIdResponse putUpdateBusinessLineByIdResponse = new PutUpdateBusinessLineByIdResponse();
+            if (!(null == (putUpdateBusinessLineByIdRequest.getName())) && !putUpdateBusinessLineByIdRequest.getName().isEmpty())
+                if (!(null == (putUpdateBusinessLineByIdRequest.getDescription())) && !putUpdateBusinessLineByIdRequest.getDescription().isEmpty())
+                    if (!(null == (putUpdateBusinessLineByIdRequest.getImage())) && !putUpdateBusinessLineByIdRequest.getImage().isEmpty())
+                        if (!(null == (putUpdateBusinessLineByIdRequest.getOwner())) && !putUpdateBusinessLineByIdRequest.getOwner().isEmpty())
+                            if (!(null == (putUpdateBusinessLineByIdRequest.getCreateby())) && !putUpdateBusinessLineByIdRequest.getCreateby().isEmpty())
+
+                            {
+
+                                return ResponseEntity.ok(checkBusinessLineUseCase.putUpdateBusinessLineByIdResponse(id, putUpdateBusinessLineByIdRequest));
+                            } else {
+                                return new ResponseEntity(HttpStatus.METHOD_NOT_ALLOWED);
+
+                            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+
+        return null;
+
+
 
     }
 
     @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE, path = "/{id}")
     public ResponseEntity deleteBussinesLineById(@PathVariable("id") String id, @RequestBody DeleteBussinesLineByIdRequest deleteBussinesLineByIdRequest) throws IOException {
-        return ResponseEntity.ok(checkBusinessLineUseCase.deleteBussinesLineByIdResponse(id, deleteBussinesLineByIdRequest));
+        try {
+            DeleteBussinesLineByIdResponse deleteBussinesLineByIdResponse = new DeleteBussinesLineByIdResponse();
+            if (!(null == (deleteBussinesLineByIdRequest.getUsername())) && !deleteBussinesLineByIdRequest.getUsername().isEmpty()) {
+
+                return ResponseEntity.ok(checkBusinessLineUseCase.deleteBussinesLineByIdResponse(id, deleteBussinesLineByIdRequest));
+            } else {
+                return new ResponseEntity(HttpStatus.METHOD_NOT_ALLOWED);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+
 
     }
 
@@ -85,6 +154,7 @@ public class ApiRest {
         PostcreateBussinesResponse response;
         return ResponseEntity.ok(checkBusinessLineUseCase.postCapacityResponse(request));
 
+
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, path = "/capacity/{id}")
@@ -95,7 +165,19 @@ public class ApiRest {
 
     @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE, path = "/capacity/{id}")
     public ResponseEntity deletecapacity(@PathVariable("id") String id, @RequestBody DeleteCapacityByidRequest deleteCapacityByidRequest) throws IOException {
-        return ResponseEntity.ok(checkBusinessLineUseCase.deleteCapacityByidResponse(id, deleteCapacityByidRequest));
+        try {
+            DeleteCapacityByidResponse deleteCapacityByidResponse = new DeleteCapacityByidResponse();
+            if (!(null == (deleteCapacityByidRequest.getUsername())) && !deleteCapacityByidRequest.getUsername().isEmpty()) {
+
+                return ResponseEntity.ok(checkBusinessLineUseCase.deleteCapacityByidResponse(id, deleteCapacityByidRequest));
+            } else {
+                return new ResponseEntity(HttpStatus.METHOD_NOT_ALLOWED);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
 
     }
 
@@ -108,10 +190,27 @@ public class ApiRest {
 
 
     @PostMapping(value = "/createcommentary")
-    public ResponseEntity createcommentary(PostCommentaryRequest request) {
+    public ResponseEntity createcommentary(@RequestBody PostCommentaryRequest postCommentaryRequest) {
         PostCommentaryResponse response;
-        return ResponseEntity.ok(checkBusinessLineUseCase.postCommentaryResponse(request));
 
+        try {
+            PostCommentaryResponse postCommentaryResponse = new PostCommentaryResponse();
+            if (!(null == (postCommentaryRequest.getUsername())) && !postCommentaryRequest.getUsername().isEmpty())
+                if (!(null == (postCommentaryRequest.getComment())) && !postCommentaryRequest.getComment().isEmpty())
+                    {
+
+                    return ResponseEntity.ok(checkBusinessLineUseCase.postCommentaryResponse(postCommentaryRequest));
+                } else {
+                    return new ResponseEntity(HttpStatus.METHOD_NOT_ALLOWED);
+
+                }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+
+        return null;
     }
 
 

@@ -7,16 +7,16 @@
         <processorPath useClasspath="false">
           <entry name="$USER_HOME$/.gradle/caches/modules-2/files-2.1/org.projectlombok/lombok/1.18.16/6dc192c7f93ec1853f70d59d8a6dcf94eb42866/lombok-1.18.16.jar" />
         </processorPath>
-        <module name="bussinessline.app-service.test" />
-        <module name="bussinessline.usecase.test" />
-        <module name="bussinessline.api-business-line.main" />
-        <module name="bussinessline.connectbd.main" />
-        <module name="bussinessline.model.test" />
-        <module name="bussinessline.model.main" />
-        <module name="bussinessline.api-business-line.test" />
-        <module name="bussinessline.app-service.main" />
-        <module name="bussinessline.usecase.main" />
-        <module name="bussinessline.connectbd.test" />
+        <module name="app-service.bussinessline.app-service.test" />
+        <module name="model.bussinessline.model.test" />
+        <module name="connectbd.bussinessline.connectbd.test" />
+        <module name="usecase.bussinessline.usecase.main" />
+        <module name="app-service.bussinessline.app-service.main" />
+        <module name="model.bussinessline.model.main" />
+        <module name="connectbd.bussinessline.connectbd.main" />
+        <module name="usecase.bussinessline.usecase.test" />
+        <module name="api-business-line.bussinessline.api-business-line.main" />
+        <module name="api-business-line.bussinessline.api-business-line.test" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
