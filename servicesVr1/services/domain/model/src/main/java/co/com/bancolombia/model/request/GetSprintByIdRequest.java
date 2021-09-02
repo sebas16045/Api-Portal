@@ -16,5 +16,5 @@ import java.util.UUID;
 @Data
 public class GetSprintByIdRequest {
     private UUID id;
-    private List<User> userList;
+    private String username;
 }

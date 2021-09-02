@@ -26,7 +26,7 @@ public class ApiRest {
     private final CheckBusinessLineUseCase checkBusinessLineUseCase;
 
 
-    @GetMapping(value = "/")
+    @GetMapping(value = "")
     public ResponseEntity getlistall(@Validated @RequestBody GetlistallRequest request) {
         GetlistallResponse response;
         try {
@@ -47,7 +47,7 @@ public class ApiRest {
 
 
 
-    @PostMapping(value = "/")
+    @PostMapping(value = "")
     public ResponseEntity createBussinesline(@RequestBody PostcreateBussinesRequest postcreateBussinesRequest ) {
         PostcreateBussinesResponse response;
 
@@ -150,9 +150,32 @@ public class ApiRest {
 
 
     @PostMapping(value = "/capacity")
-    public ResponseEntity createcapacity(PostCapacityRequest request) {
+    public ResponseEntity createcapacity(@RequestBody PostCapacityRequest postCapacityRequest) {
         PostcreateBussinesResponse response;
-        return ResponseEntity.ok(checkBusinessLineUseCase.postCapacityResponse(request));
+        try {
+            PostCapacityResponse postCapacityResponse = new PostCapacityResponse();
+            if (!(null == (postCapacityRequest.getName())) && !postCapacityRequest.getName().isEmpty())
+                if (!(null == (postCapacityRequest.getUrlapi())) && !postCapacityRequest.getUrlapi().isEmpty())
+                    if (!(null == (postCapacityRequest.getDescription())) && !postCapacityRequest.getDescription().isEmpty())
+                        if (!(null == (postCapacityRequest.getProductorteam())) && !postCapacityRequest.getProductorteam().isEmpty())
+                            if (!(null == (postCapacityRequest.getFunctionalleader())) && !postCapacityRequest.getFunctionalleader().isEmpty())
+                                if (!(null == (postCapacityRequest.getStatus())) && !postCapacityRequest.getStatus().isEmpty())
+                                    if (!(null == (postCapacityRequest.getCreatedby())) && !postCapacityRequest.getCreatedby().isEmpty())
+                {
+                    return ResponseEntity.ok(checkBusinessLineUseCase.postCapacityResponse(postCapacityRequest));
+
+                } else {
+                    return new ResponseEntity(HttpStatus.METHOD_NOT_ALLOWED);
+
+                }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+
+        return null;
+
 
 
     }
@@ -222,13 +245,29 @@ public class ApiRest {
     @PostMapping(value = "/q")
     public ResponseEntity createq(PostQRequest request) {
         PostQResponse response;
+
         return ResponseEntity.ok(checkBusinessLineUseCase.postQResponse(request));
 
     }
 
     @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, path = "/q/{id}")
     public ResponseEntity getQById(@PathVariable("id") String id, @RequestBody GetQByIdRequest getQByIdRequest) throws IOException {
-        return ResponseEntity.ok(checkBusinessLineUseCase.getQByIdResponse(id, getQByIdRequest));
+        try {
+            GetQByIdResponse getQByIdResponse = new GetQByIdResponse();
+            if (!(null == (getQByIdRequest.getUsername())) && !getQByIdRequest.getUsername().isEmpty()) {
+
+                return ResponseEntity.ok(checkBusinessLineUseCase.getQByIdResponse(id, getQByIdRequest));
+            } else {
+                return new ResponseEntity(HttpStatus.METHOD_NOT_ALLOWED);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+
+
     }
 
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, path = "/q/{id}")
@@ -238,7 +277,22 @@ public class ApiRest {
 
     @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE, path = "/q/{id}")
     public ResponseEntity deleteQById(@PathVariable("id") String id, @RequestBody DeleteQByIdRequest deleteQByIdRequest) throws IOException {
-        return ResponseEntity.ok(checkBusinessLineUseCase.deleteQByIdResponse(id, deleteQByIdRequest));
+        try {
+            DeleteQByIdResponse deleteQByIdResponse = new DeleteQByIdResponse();
+            if (!(null == (deleteQByIdRequest.getUsername())) && !deleteQByIdRequest.getUsername().isEmpty()) {
+
+                return ResponseEntity.ok(checkBusinessLineUseCase.deleteQByIdResponse(id, deleteQByIdRequest));
+            } else {
+                return new ResponseEntity(HttpStatus.METHOD_NOT_ALLOWED);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+
+
     }
 
 
@@ -257,7 +311,21 @@ public class ApiRest {
     }
     @GetMapping(consumes = MediaType.APPLICATION_JSON_VALUE, path = "/sprint/{id}")
     public ResponseEntity getSprintById(@PathVariable("id") String id, @RequestBody GetSprintByIdRequest getSprintByIdRequest) throws IOException {
-        return ResponseEntity.ok(checkBusinessLineUseCase.getSprintByIdResponse(id, getSprintByIdRequest));
+        try {
+            GetSprintByIdResponse getSprintByIdResponse = new GetSprintByIdResponse();
+            if (!(null == (getSprintByIdRequest.getUsername())) && !getSprintByIdRequest.getUsername().isEmpty()) {
+
+                return ResponseEntity.ok(checkBusinessLineUseCase.getSprintByIdResponse(id, getSprintByIdRequest));
+            } else {
+                return new ResponseEntity(HttpStatus.METHOD_NOT_ALLOWED);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
+
     }
     @PutMapping(consumes = MediaType.APPLICATION_JSON_VALUE, path = "/sprint/{id}")
     public ResponseEntity putSprintById(@PathVariable("id") String id, @RequestBody PutSprintByIdRequest putSprintByIdRequest) throws IOException {
@@ -266,7 +334,20 @@ public class ApiRest {
 
     @DeleteMapping(consumes = MediaType.APPLICATION_JSON_VALUE, path = "/sprint/{id}")
     public ResponseEntity deleteSprintById(@PathVariable("id") String id, @RequestBody DeleteSprintByIdRequest deleteSprintByIdRequest) throws IOException {
-        return ResponseEntity.ok(checkBusinessLineUseCase.deleteSprintByIdResponse(id, deleteSprintByIdRequest));
+        try {
+            DeleteSprintByIdResponse deleteSprintByIdResponse = new DeleteSprintByIdResponse();
+            if (!(null == (deleteSprintByIdRequest.getUsername())) && !deleteSprintByIdRequest.getUsername().isEmpty()) {
+
+                return ResponseEntity.ok(checkBusinessLineUseCase.deleteSprintByIdResponse(id, deleteSprintByIdRequest));
+            } else {
+                return new ResponseEntity(HttpStatus.METHOD_NOT_ALLOWED);
+
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+
     }
 
 

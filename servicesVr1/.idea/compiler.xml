@@ -20,16 +20,31 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="api-business-line.bussinessline.api-business-line.main" target="1.8" />
+      <module name="api-business-line.bussinessline.api-business-line.test" target="1.8" />
+      <module name="app-service.bussinessline.app-service.main" target="1.8" />
+      <module name="app-service.bussinessline.app-service.test" target="1.8" />
+      <module name="bussinessline.api-business-line" target="1.8" />
       <module name="bussinessline.api-business-line.main" target="1.8" />
       <module name="bussinessline.api-business-line.test" target="1.8" />
+      <module name="bussinessline.app-service" target="1.8" />
       <module name="bussinessline.app-service.main" target="1.8" />
       <module name="bussinessline.app-service.test" target="1.8" />
+      <module name="bussinessline.connectbd" target="1.8" />
       <module name="bussinessline.connectbd.main" target="1.8" />
       <module name="bussinessline.connectbd.test" target="1.8" />
+      <module name="bussinessline.model" target="1.8" />
       <module name="bussinessline.model.main" target="1.8" />
       <module name="bussinessline.model.test" target="1.8" />
+      <module name="bussinessline.usecase" target="1.8" />
       <module name="bussinessline.usecase.main" target="1.8" />
       <module name="bussinessline.usecase.test" target="1.8" />
+      <module name="connectbd.bussinessline.connectbd.main" target="1.8" />
+      <module name="connectbd.bussinessline.connectbd.test" target="1.8" />
+      <module name="model.bussinessline.model.main" target="1.8" />
+      <module name="model.bussinessline.model.test" target="1.8" />
+      <module name="usecase.bussinessline.usecase.main" target="1.8" />
+      <module name="usecase.bussinessline.usecase.test" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

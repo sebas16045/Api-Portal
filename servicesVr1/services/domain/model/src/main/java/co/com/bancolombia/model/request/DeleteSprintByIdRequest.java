@@ -16,5 +16,5 @@ import java.util.UUID;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class DeleteSprintByIdRequest {
     private UUID id;
-    private List<User> userList;
+    private String username;
 }

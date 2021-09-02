@@ -16,6 +16,6 @@ import java.util.UUID;
 @Data
 public class GetQByIdRequest {
     private UUID id;
-    private List<User>userList;
+    private String username;
 
 }
